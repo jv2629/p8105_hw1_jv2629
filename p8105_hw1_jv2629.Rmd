@@ -10,9 +10,11 @@ Load tidyverse to enable tibble to create a data frame
 library(tidyverse)
 problem1_df = tibble(
   random_samp10 = rnorm(10, mean = 0, sd = 5),
-  more_than_2 = if (random_samp10 > 2) "yes" else "no"
+  more_than_2 = if (random_samp10 > 2) print("yes") else print("no"),
   vec_cities = c("Boston", "Miami", "NYC", "LA", "Amsterdam", "Dar es Salaam", "Kampala", "Tel Aviv", "Rome", "Stockholm"),
   vec_continent = factor(c("North America", "North America", "North America", "North America", "Europe", "Africa", "Asia", "Asia", "Europe", "Europe"))
 )
+```
 
 mean(random_samp10)
+
