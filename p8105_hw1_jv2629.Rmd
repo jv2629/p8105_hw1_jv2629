@@ -34,7 +34,7 @@ mean(problem1_df[["vec_continent"]])
 ```
 Only "random_samp10"" returns a mean. This makes sense because it is the only data column with numerica data. "more_than_2", "vec_cities", and "vec_continent", all contain string data and thus a mean does not make sense with this data. 
 
-##Chaning variables to numeric
+##Changing variables to numeric
 ```{r changing_numeric, results = FALSE}
 help("as.numeric")
 example("as.numeric")
@@ -42,4 +42,6 @@ as.numeric(problem1_df[["more_than_2"]])
 as.numeric(problem1_df[["vec_cities"]])
 as.numeric(problem1_df[["vec_continent"]])
 ```
+Using as.numeric on the logical("more_than_2") and character ("vec_cities") variables changes all the data to "NA" and warns us that it created these "NA" by coercion. It does not know how to interpret these strings as numbers. 
 
+Using as.numeric on the factor ("vec_continent") varaible assigns numbers to each category, counting up using alphabetical order. 
