@@ -1,8 +1,10 @@
 ---
 title: "p8105_hw1_jv2629"
+author: Jaclyn Verity
+date: 09/13/18
 output: github_document
 ---
-##Initial commit
+Initial commit
 
 #Problem 1
 ##Loading tidyverse to enable tibble and create a data frame
@@ -14,7 +16,7 @@ library(tidyverse)
 ```{r problem1_df}
 problem1_df = tibble(
   random_samp10 = rnorm(10, mean = 0, sd = 5),
-  more_than_2 = ifelse (random_samp10 > 2,"yes", "no"),
+  more_than_2 = ifelse(random_samp10 > 2,"yes", "no"),
   vec_cities = c("Boston", "Miami", "NYC", "LA", "Amsterdam", "Dar es Salaam", "Kampala", "Tel Aviv", "Rome", "Stockholm"),
   vec_continent = factor(c("North America", "North America", "North America", "North America", "Europe", "Africa", "Asia", "Asia", "Europe", "Europe"))
 )
@@ -34,7 +36,7 @@ mean(problem1_df[["vec_continent"]])
 ```
 Only "random_samp10"" returns a mean. This makes sense because it is the only data column with numerica data. "more_than_2", "vec_cities", and "vec_continent", all contain string data and thus a mean does not make sense with this data. 
 
-##Changing variables to numeric
+##Changing variables
 ```{r changing_numeric, results = FALSE}
 help("as.numeric")
 example("as.numeric")
@@ -45,3 +47,12 @@ as.numeric(problem1_df[["vec_continent"]])
 Using as.numeric on the logical("more_than_2") and character ("vec_cities") variables changes all the data to "NA" and warns us that it created these "NA" by coercion. It does not know how to interpret these strings as numbers. 
 
 Using as.numeric on the factor ("vec_continent") varaible assigns numbers to each category, counting up using alphabetical order. 
+
+```{r changing_3_times}
+as.factor(problem1_df[["vec_cities"]])
+as.numeric(problem1_df[["vec_cities"]])
+as.character(problem1_df[["vec_continent"]])
+as.numeric(problem1_df[["vec_continent"]])
+```
+
+When converting the character variable to factor and then to numeric, a level for each unique string is created. Then "NA" is introduced because it does not recognize these units as numbers. However, when the factor variable is converted to character and then to numeric, the strings that are the same get recognized and they are assigned numbers in alphabetical order. 
