@@ -4,7 +4,6 @@ author: Jaclyn Verity
 date: 09/13/18
 output: github_document
 ---
-Initial commit
 
 #Problem 1
 ##Loading tidyverse to enable tibble and create a data frame
@@ -60,6 +59,7 @@ When converting the character variable to factor and then to numeric, a level fo
 #Problem 2
 
 ```{r problem2_df}
+set.seed(1)
 problem2_df = tibble(
   x = rnorm(1000),
   y = rnorm(1000),
@@ -69,4 +69,5 @@ problem2_df = tibble(
 )
 ```
 
-I am so confused, why does it sometimes register as the data frame or a vector having tons lots of data, and sometimes not?
+Problem2_df consists of `r length(problem2_df[["x"]])` observations. The mean and median of x are `r mean(problem2_df[["x"]])` and `r median(problem2_df[["x"]])` respectively. The proportion of cases where the logical vector is true is `r mean(problem2_df[["positive"]])`.
+
