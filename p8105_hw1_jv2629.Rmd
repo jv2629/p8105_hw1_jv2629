@@ -63,12 +63,10 @@ When converting the character variable to factor and then to numeric, a level fo
 problem2_df = tibble(
   x = rnorm(1000),
   y = rnorm(1000),
-  positive = ifelse(x + y > 0, "yes", "no")
-  
-) 
-add_column(problem2_df, vec_numeric = as.numeric(problem2_df[["positive"]])
+  positive = (x + y > 0),
+  vec_numeric = as.numeric(positive),
+  vec_factor = as.factor(vec_numeric)
 )
-add_column(problem2_df, vec_factor = as.factor(problem2_df[["vec_numeric"]]))
 ```
 
 I am so confused, why does it sometimes register as the data frame or a vector having tons lots of data, and sometimes not?
